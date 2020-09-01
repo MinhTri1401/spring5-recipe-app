@@ -17,6 +17,8 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    @ManyToMany
+    private Set<Category> categories;
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
 
@@ -123,5 +125,13 @@ public class Recipe {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
