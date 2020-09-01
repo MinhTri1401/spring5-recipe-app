@@ -11,14 +11,14 @@ public class Recipe {
     private Long id;
 
     private String description;
-    private String prepTime;
-    private String cookTime;
-    private String servings;
+    private Integer prepTime;
+    private Integer cookTime;
+    private Integer servings;
     private String source;
     private String url;
     private String directions;
     //todo add
-    //private String difficulty;
+    //private Difficulty difficulty;
 
     @Lob
     private Byte[] image;
@@ -27,7 +27,7 @@ public class Recipe {
     private Notes notes;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-    private Set<Ingredient> ingredientSet;
+    private Set<Ingredient> ingredients;
 
     public Long getId() {
         return id;
@@ -45,27 +45,27 @@ public class Recipe {
         this.description = description;
     }
 
-    public String getPrepTime() {
+    public Integer getPrepTime() {
         return prepTime;
     }
 
-    public void setPrepTime(String prepTime) {
+    public void setPrepTime(Integer prepTime) {
         this.prepTime = prepTime;
     }
 
-    public String getCookTime() {
+    public Integer getCookTime() {
         return cookTime;
     }
 
-    public void setCookTime(String cookTime) {
+    public void setCookTime(Integer cookTime) {
         this.cookTime = cookTime;
     }
 
-    public String getServings() {
+    public Integer getServings() {
         return servings;
     }
 
-    public void setServings(String servings) {
+    public void setServings(Integer servings) {
         this.servings = servings;
     }
 
@@ -109,11 +109,11 @@ public class Recipe {
         this.notes = notes;
     }
 
-    public Set<Ingredient> getIngredientSet() {
-        return ingredientSet;
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredientSet(Set<Ingredient> ingredientSet) {
-        this.ingredientSet = ingredientSet;
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
