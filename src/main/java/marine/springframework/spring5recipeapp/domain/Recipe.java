@@ -1,4 +1,4 @@
-package marine.springframework.domain;
+package marine.springframework.spring5recipeapp.domain;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,6 +18,9 @@ public class Recipe {
     private String url;
     private String directions;
     @ManyToMany
+    @JoinTable(name = "recipe_category",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;

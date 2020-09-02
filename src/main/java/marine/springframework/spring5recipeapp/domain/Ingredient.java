@@ -1,4 +1,4 @@
-package marine.springframework.domain;
+package marine.springframework.spring5recipeapp.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
