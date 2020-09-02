@@ -1,7 +1,11 @@
 package marine.springframework.spring5recipeapp.repositories;
 
-import marine.springframework.spring5recipeapp.domain.Recipe;
+import marine.springframework.spring5recipeapp.domain.Category;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CategoryRepository extends CrudRepository<Recipe,Long> {
+import java.util.Optional;
+
+
+public interface CategoryRepository extends CrudRepository<Category,Long> {
+    Optional<Category> findByDescription(String description);
 }
