@@ -1,5 +1,6 @@
 package marine.springframework.spring5recipeapp.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import marine.springframework.spring5recipeapp.domain.*;
 import marine.springframework.spring5recipeapp.repositories.CategoryRepository;
 import marine.springframework.spring5recipeapp.repositories.RecipeRepository;
@@ -7,10 +8,12 @@ import marine.springframework.spring5recipeapp.repositories.UnitOfMeasureReposit
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
@@ -34,8 +37,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 .orElseThrow(() -> new RuntimeException("Category" + description + " not found"));
     }
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading bootstrap data");
     }
     private List<Recipe> getRecipes() {
 
