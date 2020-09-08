@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 public class IngredientCommand {
-    public Long id;
-    public String description;
-    public BigDecimal amount;
-    public UnitOfMeasureCommand unitOfMeasure;
+    private Long id;
+    private String description;
+    private BigDecimal amount;
+    private UnitOfMeasureCommand uom;
 }
