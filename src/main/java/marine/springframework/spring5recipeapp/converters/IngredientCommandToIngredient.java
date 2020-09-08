@@ -1,6 +1,5 @@
 package marine.springframework.spring5recipeapp.converters;
 
-import lombok.Synchronized;
 import marine.springframework.spring5recipeapp.commands.IngredientCommand;
 import marine.springframework.spring5recipeapp.domain.Ingredient;
 import org.springframework.core.convert.converter.Converter;
@@ -14,7 +13,7 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
     public IngredientCommandToIngredient(UnitOfMeasureCommandToUnitOfMeasure uomConverter) {
         this.uomConverter = uomConverter;
     }
-    @Synchronized
+
     @Nullable
     @Override
     public Ingredient convert(IngredientCommand source) {
