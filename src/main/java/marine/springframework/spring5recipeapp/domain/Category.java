@@ -13,6 +13,7 @@ import java.util.Set;
 @ToString(exclude = "recipes")
 @Entity
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
