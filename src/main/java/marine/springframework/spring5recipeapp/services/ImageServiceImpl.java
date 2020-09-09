@@ -11,7 +11,9 @@ import java.io.IOException;
 
 @Slf4j
 @Service
-public class ImageServiceImpl implements  ImageService{
+public class ImageServiceImpl implements ImageService {
+
+
     private final RecipeRepository recipeRepository;
 
     public ImageServiceImpl( RecipeRepository recipeService) {
@@ -19,9 +21,10 @@ public class ImageServiceImpl implements  ImageService{
         this.recipeRepository = recipeService;
     }
 
-    @Transactional
     @Override
+    @Transactional
     public void saveImageFile(Long recipeId, MultipartFile file) {
+
         try {
             Recipe recipe = recipeRepository.findById(recipeId).get();
 
