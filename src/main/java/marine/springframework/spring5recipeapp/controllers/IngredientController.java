@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j
 @Controller
 public class IngredientController {
-    private final RecipeService recipeService;
+
     private final IngredientService ingredientService;
+    private final RecipeService recipeService;
     private final UnitOfMeasureService unitOfMeasureService;
-    public IngredientController(RecipeService recipeService, IngredientService ingredientService, UnitOfMeasureService unitOfMeasureService) {
-        this.recipeService = recipeService;
+
+    public IngredientController(IngredientService ingredientService, RecipeService recipeService, UnitOfMeasureService unitOfMeasureService) {
         this.ingredientService = ingredientService;
+        this.recipeService = recipeService;
         this.unitOfMeasureService = unitOfMeasureService;
     }
 
